@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import InputForm from './component/InputForm';
 
 function App() {
+
+  const appClick = () => {
+    console.log('앱에서 클릭했어요')
+    setValues(prev => [...prev, value])
+  }
+
+  const changeValue = (e) => {
+    setValue(prev => prev = e.target.value)
+  }
+
+  const [value, setValue] = useState('')
+  const [values, setValues] = useState([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputForm 
+      handleChange={changeValue}
+      handleClick={appClick}
+      inputValue={value}
+      />
+      <div>
+        {values.map((value, idx) => {
+          return <p key={idx}>{value}</p>
+        })}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
