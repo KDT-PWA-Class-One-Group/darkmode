@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <ul id="student">
+      <li>공욱재</li>
+      <li>민지</li>
+      <li>서민석</li>
+    </ul>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    const ul = root.children[0];
+    console.dir(ul);
+
+    // ul.addEventListener("click",function(object){
+    //   // ul.style.backgroundColor="cadetblue";
+    //   // 속성 값 추가
+    //   if (object.target.style.backgroundColor === "cadetblue"){
+    //     object.target.style.backgroundColor = "black";
+    //   }else{
+    //     object.target.style.backgroundColor = 'cadetblue';
+    //   }
+    // })
+
+    //위 함수는 color값 하나만 가능하다, color값 외에는 사용안됨/
+
+    let state = true;
+
+    ul.addEventListener("click",function(object){
+      if(state === true) {
+        object.target.style.backgroundColor = 'cadetblue'
+        state = false;
+      } else {
+        object.target.style.backgroundColor = "black";
+        state =true;
+      }
+    });
+    //state 변수 하나 초기화 하는 것 (기준)으로 여러가지 요소를 정할 수 있다.
+    //중요도 백만개
+
+
+  </script>
+</body>
+</html>
