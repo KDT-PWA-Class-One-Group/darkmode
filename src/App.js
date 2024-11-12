@@ -7,6 +7,7 @@ function App() {
   const appClick = () => {
     console.log('앱에서 클릭했어요')
     setValues(prev => [...prev, value])
+    setValue('')
   }
 
   const changeValue = (e) => {

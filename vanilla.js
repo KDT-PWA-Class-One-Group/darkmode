@@ -15,20 +15,22 @@ function useState(initialValue) {
   }
 
   // 현재 상태와 상태 변경 함수를 배열로 반환
-  return [() => state, setState]
+  let result = () => state
+  return [result, setState]
 }
 
-// 예제 상태와 렌더링 함수 정의
 const [count, setCount] = useState(0)
 
 function render() {
   root.innerHTML = `
-    <p>Count: ${count()}</p>
-    <button id="add">추가</button>
+    <p>상태 값: ${count()}</p>
+    <button id="add">더하기</button>
+    <button id="subtract">빼기</button>
   `
 
   // 버튼 클릭 시 상태 업데이트
   document.getElementById("add").onclick = () => setCount(prev => prev+1)
+  document.getElementById("subtract").onclick = () => setCount(prev => prev-1)
 }
 
 // 초기 렌더링
